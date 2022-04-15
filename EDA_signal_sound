@@ -1,0 +1,27 @@
+clear
+a = arduino()
+data = [];
+diff = [];
+n = 1;
+m = 1;
+
+for i = 0:1:10
+   data(n) = readVoltage(a, 'A0')
+   time = i;
+   %plot(
+   if n >1 
+       diff(m) =  data(n) - data(n-1)
+       if diff(m) > 0.02
+        load handel
+        sound(y, Fs)
+       elseif diff(m) < -0.02
+              tr =  load('train');
+              sound(tr.y, tr.Fs)
+
+       m = m +1; 
+       end
+   end
+
+    n = n +1;
+    pause(1)
+end
